@@ -45,6 +45,7 @@ public class Main {
     /**
      * Helper method for printing result of {@code axx(a,x)}.
      *
+     *
      * @param a the parameter of the function.
      * @param x the argument of the function.
      */
