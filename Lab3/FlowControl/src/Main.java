@@ -5,7 +5,7 @@ public class Main {
      * method {@code printResults(a,x)} few times with different arguments.
      *
      * @param a the parameter of the function {@code axx(a,x)}.
-     * @param xthe argument of the function {@code axx(a,x)}.
+     * @param x the argument of the function {@code axx(a,x)}.
      */
     public static void main(String[] args) {
         printResults(0, 0);
