@@ -1,13 +1,13 @@
 public class Task2 {
     public static void main(String[] args) {
-        printResults(new int[] {-65,-21,-32});
-        printResults(new int[] {2,78,63});
+        printResults(new int[] {-65,-21,-32,54});
+        printResults(new int[] {2,78,63,-523});
         printResults(new int[] {-121,-59,39});
         printResults(new int[] {});
         printResults(null);
     }
 
-    public static int findMaxAbsValue(int[] array) {
+    public static double findAvarage(int[] array) {
         if (array == null) {
             throw new NullPointerException("Argument cannot be null");
         }
@@ -15,21 +15,23 @@ public class Task2 {
             throw new IllegalArgumentException("Array cannot be empty");
         }
 
-        int maxAbsValue = array[0];
+        double sum = 0.0;
+        int count = 0;
 
-        for (int i = 1; i < array.length; i++) {
-            if (Math.abs(array[i]) > Math.abs(maxAbsValue)) {
-                maxAbsValue = array[i];
+        for (int i = 0; i < array.length; i++) {
+            if (i % 3 == 0) {
+                sum += array[i];
+                count++;
             }
         }
 
-        return maxAbsValue;
+        return sum / count;
     }
 
     static void printResults(int[] array) {
         System.out.println("Array: " + java.util.Arrays.toString(array));
         try { // Відстежуємо помилку
-            System.out.println("Result: " + findMaxAbsValue(array));
+            System.out.println("Result: " + findAvarage(array));
         } catch (NullPointerException | IllegalArgumentException e) {
             System.out.println("EXCEPTION! " + e.getMessage());
         }
