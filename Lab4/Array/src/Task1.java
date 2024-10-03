@@ -1,4 +1,4 @@
-public class Main {
+public class Task1 {
     public static void main(String[] args) {
         printResults(new int[] {-65,-21,-32});
         printResults(new int[] {2,78,63});
