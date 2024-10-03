@@ -1,8 +1,10 @@
+import java.util.Arrays;
+
 public class Task2 {
     public static void main(String[] args) {
         printResults(new int[] {-65,-21,-32,54});
-        printResults(new int[] {2,78,63,-523});
-        printResults(new int[] {-121,-59,39});
+        printResults(new int[] {2,78,63,3});
+        printResults(new int[] {-121,-59,39,-87});
         printResults(new int[] {});
         printResults(null);
     }
@@ -15,7 +17,7 @@ public class Task2 {
             throw new IllegalArgumentException("Array cannot be empty");
         }
 
-        double sum = 0.0;
+        double sum = 0;
         int count = 0;
 
         for (int i = 0; i < array.length; i++) {
@@ -29,7 +31,7 @@ public class Task2 {
     }
 
     static void printResults(int[] array) {
-        System.out.println("Array: " + java.util.Arrays.toString(array));
+        System.out.println("Array: " + Arrays.toString(array));
         try { // Відстежуємо помилку
             System.out.println("Result: " + findAvarage(array));
         } catch (NullPointerException | IllegalArgumentException e) {
