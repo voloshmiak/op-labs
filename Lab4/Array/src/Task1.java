@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Task1 {
     public static void main(String[] args) {
         printResults(new int[] {-65,-21,-32});
@@ -27,7 +29,7 @@ public class Task1 {
     }
 
     static void printResults(int[] array) {
-        System.out.println("Array: " + java.util.Arrays.toString(array));
+        System.out.println("Array: " + Arrays.toString(array));
         try { // Відстежуємо помилку
             System.out.println("Result: " + findMaxAbsValue(array));
         } catch (NullPointerException | IllegalArgumentException e) {
