@@ -81,7 +81,6 @@ public class Task1 {
 
         return count;
     }
-
     static void printResults(int[][] array) {
         try {
             System.out.println("Matrix: ");
@@ -95,6 +94,7 @@ public class Task1 {
         try {
             System.out.println("Number of winners: " + getNumberOfWinners(array));
         } catch (Exception e) {
+
             System.out.println("EXCEPTION! " + e.getMessage());
         }
     }
