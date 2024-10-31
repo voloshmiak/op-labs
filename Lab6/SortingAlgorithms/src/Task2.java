@@ -9,7 +9,7 @@ public class Task2 {
         printResults(new short[] {});
     }
 
-    public static short[] insertionSort(short[] array) {
+    public static short[] bubbleSort(short[] array) {
         if (array == null) {
             throw new NullPointerException("Array is null");
         }
@@ -35,7 +35,7 @@ public class Task2 {
 
     static void printResults(short[] array) {
         try {
-            System.out.println(Arrays.toString(insertionSort(array)));
+            System.out.println(Arrays.toString(bubbleSort(array)));
         } catch (NullPointerException | IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
