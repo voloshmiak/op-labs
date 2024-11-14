@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Main {
@@ -25,23 +26,31 @@ public class Main {
     }
     public static Employee findMaxSalary(Firm firm) {
         Employee maxSalaryEmployee = firm.getDirector();
-        for (Department department : firm.getDepartments()) {
+        Iterator departmentIterator = firm.getDepartments().iterator();
+        while (departmentIterator.hasNext()) {
+            Department department = (Department) departmentIterator.next();
             if (department.getHead().getSalary() > maxSalaryEmployee.getSalary()) {
                 maxSalaryEmployee = department.getHead();
             }
-            for (Employee employee : department.getEmployees()) {
+            Iterator employeeIterator = department.getEmployees().iterator();
+            while (employeeIterator.hasNext()) {
+                Employee employee = (Employee) employeeIterator.next();
                 if (employee.getSalary() > maxSalaryEmployee.getSalary()) {
                     maxSalaryEmployee = employee;
                 }
             }
         }
         return maxSalaryEmployee;
-    }
+}
     public static List<Department> findDepartmentsWithHigherPaidEmployees(Firm firm) {
         List<Department> result = new ArrayList<>();
-        for (Department department : firm.getDepartments()) {
+        Iterator<Department> departmentIterator = firm.getDepartments().iterator();
+        while (departmentIterator.hasNext()) {
+            Department department = departmentIterator.next();
             double headSalary = department.getHead().getSalary();
-            for (Employee employee : department.getEmployees()) {
+            Iterator<Employee> employeeIterator = department.getEmployees().iterator();
+            while (employeeIterator.hasNext()) {
+                Employee employee = employeeIterator.next();
                 if (employee.getSalary() > headSalary) {
                     result.add(department);
                     break;
@@ -49,7 +58,7 @@ public class Main {
             }
         }
         return result;
-    }
+}
     public static List<Employee> getAllEmployees(Firm firm) {
         List<Employee> allEmployees = new ArrayList<>();
         allEmployees.add(firm.getDirector());
