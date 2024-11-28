@@ -1,5 +1,4 @@
 import java.util.Set;
-import java.util.TreeSet;
 
 public class Department {
     private String name;
@@ -9,7 +8,7 @@ public class Department {
     public Department(String name, Employee head, Set<Employee> employees) {
         this.name = name;
         this.head = head;
-        this.employees = new TreeSet<>(employees);
+        this.employees = employees;
     }
 
     public String getName() {

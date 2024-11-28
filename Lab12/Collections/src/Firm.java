@@ -1,8 +1,6 @@
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
-import java.util.Comparator;
+import java.util.HashMap;
 
 public class Firm {
     private String name;
@@ -13,9 +11,8 @@ public class Firm {
     public Firm(String name, Employee director, Set<Department> departments) {
         this.name = name;
         this.director = director;
-        this.departments = new TreeSet<>(Comparator.comparing(Department::getName));
-        this.departments.addAll(departments);
-        this.departmentMap = new TreeMap<>();
+        this.departments = departments;
+        this.departmentMap = new HashMap<>();
         for (Department department : departments) {
             this.departmentMap.put(department.getName(), department);
         }

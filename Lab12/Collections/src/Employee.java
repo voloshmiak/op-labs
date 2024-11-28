@@ -1,4 +1,4 @@
-public class Employee implements Comparable<Employee> {
+public class Employee {
     private String firstName;
     private String lastName;
     private double salary;
@@ -19,10 +19,5 @@ public class Employee implements Comparable<Employee> {
 
     public double getSalary() {
         return salary;
-    }
-
-    @Override
-    public int compareTo(Employee other) {
-        return Double.compare(this.salary, other.salary);
     }
 }

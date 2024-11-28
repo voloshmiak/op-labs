@@ -1,6 +1,5 @@
-import java.util.Comparator;
+import java.util.HashSet;
 import java.util.Set;
-import java.util.TreeSet;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,14 +10,13 @@ public class Main {
         Employee jessica = new Employee("Jessica", "Smith", 80000);
         Employee alina = new Employee("Alina", "Smith", 100000);
 
-        Set<Employee> hrEmployees = new TreeSet<>(Set.of(jane, jack));
-        Set<Employee> engineeringEmployees = new TreeSet<>(Set.of(jessica));
+        Set<Employee> hrEmployees = new HashSet<>(Set.of(jane, jack));
+        Set<Employee> engineeringEmployees = new HashSet<>(Set.of(jessica));
 
         Department hr = new Department("Human Resources", john, hrEmployees);
         Department engineering = new Department("Engineering", jessie, engineeringEmployees);
 
-        Set<Department> departments = new TreeSet<>(Comparator.comparing(Department::getName));
-        departments.addAll(Set.of(hr, engineering));
+        Set<Department> departments = new HashSet<>(Set.of(hr, engineering));
         Firm firm = new Firm("ABC", alina, departments);
 
         printMaxSalaryEmployee(firm);
@@ -42,7 +40,7 @@ public class Main {
     }
 
     public static Set<Department> findDepartmentsWithHigherPaidEmployees(Firm firm) {
-        Set<Department> result = new TreeSet<>(Comparator.comparing(Department::getName));
+        Set<Department> result = new HashSet<>();
         for (Department department : firm.getDepartments()) {
             double headSalary = department.getHead().getSalary();
             for (Employee employee : department.getEmployees()) {
@@ -56,7 +54,7 @@ public class Main {
     }
 
     public static Set<Employee> getAllEmployees(Firm firm) {
-        Set<Employee> allEmployees = new TreeSet<>();
+        Set<Employee> allEmployees = new HashSet<>();
         allEmployees.add(firm.getDirector());
         for (Department department : firm.getDepartments()) {
             allEmployees.add(department.getHead());
