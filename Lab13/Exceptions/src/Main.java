@@ -4,26 +4,34 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-
-        Employee john = new Employee("John", "Smith", 50000);
-        Employee jane = new Employee("Jane", "Smith", 60000);
-        Employee jack = new Employee("Jack", "Smith", 55000);
-        Employee jessie = new Employee("Jessie", "Smith", 70000);
-        Employee jessica = new Employee("Jessica", "Smith", 80000);
-        Employee alina = new Employee("Alina", "Smith", 100000);
-
-
-        Department hr = new Department("Human Resources", john, List.of(jane, jack));
-        Department engineering = new Department("Engineering", jessie, List.of(jessica));
-
-
-        Firm firm = new Firm("ABC", alina, List.of(hr, engineering));
-
-
-        printMaxSalaryEmployee(firm);
-        printDepartmentsWithHigherPaidEmployees(firm);
-        printAllEmployees(firm);
+        startProgram();
     }
+
+    static void startProgram() {
+        try {
+            Employee john = new Employee("John", "Smith", 50000);
+            Employee jane = new Employee("Jane", "Smith", 60000);
+            Employee jack = new Employee("Jack", "Smith", 55000);
+            Employee jessie = new Employee("Jessie", "Smith", 70000);
+            Employee jessica = new Employee("Jessica", "Smith", 80000);
+            Employee alina = new Employee("Alina", "Smith", 100000);
+
+            Department hr = new Department("Human Resources", john, List.of(jane, jack));
+            Department engineering = new Department("Engineering", jessie, List.of(jessica));
+
+            Firm firm = new Firm("ABC", alina, List.of(hr, engineering));
+
+        } catch (InvalidNameException e) {
+            System.err.println("Caught InvalidDepartmentNameException: " + e.getMessage());
+        } catch (IllegalArgumentException e) {
+            System.err.println("Caught IllegalArgumentException: " + e.getMessage());
+        } catch (NullPointerException e) {
+            System.err.println("Caught NullPointerException: " + e.getMessage());
+        } finally {
+            System.out.println("Execution completed.");
+     }
+    }
+
     public static Employee findMaxSalary(Firm firm) {
         Employee maxSalaryEmployee = firm.getDirector();
         Iterator departmentIterator = firm.getDepartments().iterator();
